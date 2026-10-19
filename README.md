@@ -19,28 +19,92 @@ de ce langage*, pas une traduction du précédent.
 4. **L'agent est un prof, pas un assistant.** Voir `AGENTS.md`. Il ne code pas à ta place ;
    il te guide, te questionne et t'envoie vers la bonne page de doc.
 
-## Démarrer
+## Démarrer ici — la première session
+
+Tout est déjà installé (voir `TOOLCHAINS.md`) : aucune installation, aucune dépendance à récupérer.
+On travaille **un langage à la fois**, et on commence par Java.
+
+### Étape 0 — lire avant de taper (20 min, pas plus)
+
+1. `SPEC.md` **§1** (CLI et codes de sortie), **§2** (format + validations), **§5 → M0**.
+2. Les trois cas que M0 doit faire passer : `conformance/cases/04-cycle`, `05-unknown-dep`,
+   `06-duplicate-id` — le `case.json` dit exactement ce qui est attendu.
+3. `AGENTS.md` — ce que l'agent a le droit de faire (peu de choses).
+
+### Étape 1 — vérifier que le squelette tourne
 
 ```bash
-git clone <ce-repo> polyglot-lab && cd polyglot-lab
-cat SPEC.md                      # ce que doit faire tasklite
-cat docs/choose-your-language.md # par où commencer, et pourquoi
+cd languages/java
+mvn -q package
+java -jar target/tasklite.jar; echo "exit=$?"
 ```
 
-Puis, pour le langage choisi :
+Attendu : `tasklite: not implemented yet — see SPEC.md (M0)` puis `exit=3`. Si tu vois autre
+chose, le support a un problème : arrête-toi et signale-le.
+
+### Étape 2 — mesurer l'écart
 
 ```bash
-cd languages/java        # ou kotlin, go, rust, typescript
-# lire le README.md du dossier (build/run/test)
+python3 ../../conformance/run.py --cmd "java -jar target/tasklite.jar" --upto M0
 ```
 
-Et à chaque milestone :
+Attendu : `0/3 case(s) passed.` — c'est le point de départ, pas un échec. À la fin de M0 : `3/3`.
+
+### Étape 3 — coder
+
+Le fichier : `languages/java/src/main/java/lab/tasklite/Main.java`.
+
+**Tu écris tout.** L'agent ne produira jamais l'implémentation. Si tu lui colles ton code, il
+le lit et le commmente ; si tu lui demandes la solution, il refuse une fois, puis te propose de
+réduire le problème.
+
+Après chaque modification, la boucle est :
 
 ```bash
-python3 conformance/run.py --cmd "<commande qui lance ton binaire>"
-# ex. depuis languages/go : --cmd "go run ."
-# ex. depuis languages/rust : --cmd "cargo run --quiet --"
+mvn -q package && python3 ../../conformance/run.py --cmd "java -jar target/tasklite.jar" --upto M0
 ```
+
+Un cas qui échoue s'affiche avec `-v` : `--upto M0 -v` montre stdout, stderr et l'attendu.
+
+### Étape 4 — la boucle d'une session
+
+| # | Toi | L'agent |
+|---|---|---|
+| 1 | Relis le milestone, reformule-le en une phrase | corrige la reformulation si elle est floue |
+| 2 | Écris la sortie que tu attends pour un cas du milestone (`04-cycle` en M0) | compare avec la fixture |
+| 3 | Annonce tes structures de données et l'ordre des étapes | pose **une** question sur le point le plus fragile |
+| 4 | Code | ne regarde pas avant que tu demandes une revue |
+| 5 | Demande une revue | commente par questions, max 3 remarques, jamais de code |
+| 6 | Lance la conformance | lit la sortie avec toi, sans l'interpréter à ta place |
+| 7 | Remplis `journal/java.md` | deux questions dessus |
+
+### Étape 5 — clore le milestone
+
+- `PROGRESS.md` : coche `M0` pour Java **seulement si** `3/3` passe.
+- `journal/java.md` : ce qui a coincé, ce que tu as appris, le temps passé.
+
+Puis M1 (`01-simple`, `03-failure`, `10-ordering`), et ainsi de suite jusqu'à M3 = fin de la v0.
+
+### Si tu es bloqué
+
+Dis-le avec le message d'erreur exact. L'aide monte d'un niveau à la fois : question sur
+l'invariant → nom du concept + lien officiel → forme de la solution en prose. Jamais de code.
+Si tu insistes, l'agent te proposera une session `grill-me` plutôt que de céder.
+
+### Changer de langage
+
+Même spec, même suite, autre dossier (`languages/kotlin|go|rust|typescript`). Chaque dossier a
+son `README.md` avec les commandes. La commande de conformance change, la suite non :
+
+```bash
+# Go           --cmd "./tasklite"
+# Rust         --cmd "./target/debug/tasklite"
+# TypeScript   --cmd "node dist/main.js"
+# Kotlin       --cmd "java -jar target/tasklite.jar"
+```
+
+Les cas ne se lancent **jamais** avec `go run .` ou `cargo run` : la suite exécute le binaire
+dans un répertoire temporaire, donc l'artefact doit être construit avant.
 
 ## Structure
 
