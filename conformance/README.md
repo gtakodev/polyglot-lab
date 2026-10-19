@@ -9,8 +9,8 @@ particulier le temps mural.
 Depuis la racine du repo, en pointant la commande qui lance **ton** binaire **déjà construit** :
 
 ```bash
-# Java / Kotlin (après `mvn -q compile`)
-python3 conformance/run.py --cmd "java -cp target/classes lab.tasklite.Main"
+# Java / Kotlin (après `mvn -q package` → jar exécutable avec ses dépendances)
+python3 conformance/run.py --cmd "java -jar target/tasklite.jar"
 
 # Go (après `go build -o tasklite .`)
 python3 conformance/run.py --cmd "./tasklite"

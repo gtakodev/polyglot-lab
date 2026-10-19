@@ -4,7 +4,7 @@ Tu vas écrire **le même programme cinq fois**. Ce qui change n'est pas la diff
 mais l'endroit où le langage te fait réfléchir et l'endroit où il te laisse tranquille.
 Ce fichier sert à choisir l'ordre et à savoir ce que tu viens chercher à chaque étape.
 
-## Java 21 — la référence
+## Java 25 — la référence
 
 **Tu viens chercher :** la propreté. Tu connais déjà la syntaxe ; ici tu travailles la modélisation
 (records, interfaces scellées, pattern matching), la concurrence structurée avec les threads

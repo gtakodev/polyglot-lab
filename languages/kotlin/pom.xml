@@ -10,10 +10,10 @@
   <packaging>jar</packaging>
 
   <properties>
-    <kotlin.version>2.0.21</kotlin.version>
-    <kotlin.compiler.jvmTarget>21</kotlin.compiler.jvmTarget>
+    <kotlin.version>2.4.21</kotlin.version>
+    <kotlin.compiler.jvmTarget>25</kotlin.compiler.jvmTarget>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>21</maven.compiler.release>
+    <maven.compiler.release>25</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -60,6 +60,26 @@
         <configuration>
           <mainClass>lab.tasklite.MainKt</mainClass>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.6.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals><goal>shade</goal></goals>
+            <configuration>
+              <finalName>tasklite</finalName>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>lab.tasklite.MainKt</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

@@ -1,15 +1,15 @@
 # Kotlin
 
 ```bash
-mvn -q compile
-mvn -q exec:java -Dexec.mainClass=lab.tasklite.MainKt -- run ../../fixtures/tasks.json --json
+mvn -q package                                       # → target/tasklite.jar (stdlib incluse)
+java -jar target/tasklite.jar run ../../fixtures/tasks.json --json
 ```
 
 Conformance (depuis ce dossier) :
 
 ```bash
-mvn -q compile
-python3 ../../conformance/run.py --cmd "java -cp target/classes lab.tasklite.MainKt"
+mvn -q package
+python3 ../../conformance/run.py --cmd "java -jar target/tasklite.jar"
 ```
 
 Le squelette sort `3` (« pas implémenté »). Les dépendances (JSON, coroutines, tests) sont à

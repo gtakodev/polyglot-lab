@@ -49,6 +49,7 @@ SPEC.md                    la spec fonctionnelle (v0 → v3)
 AGENTS.md                  le mode professeur (règles pour l'agent)
 PROGRESS.md                où tu en es, langage par langage
 docs/                      notes par langage, glossaire, matrice de comparaison
+TOOLCHAINS.md              versions installées + commandes vérifiées, langage par langage
 conformance/               suite noire commune + fixtures
 languages/<lang>/          squelette minimal (build + main vide) — à toi de jouer
 journal/                   ton carnet de bord DX, un fichier par langage
