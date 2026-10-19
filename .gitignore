@@ -1,0 +1,18 @@
+# Builds
+target/
+dist/
+node_modules/
+*.class
+*.jar
+languages/go/tasklite
+languages/rust/target/
+
+# Outils
+.idea/
+.vscode/
+.DS_Store
+
+# Divers
+*.log
+.env
+__pycache__/

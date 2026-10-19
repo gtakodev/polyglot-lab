@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "write",
+      "run": "echo ok > marker.txt"
+    },
+    {
+      "id": "check",
+      "run": "test -f marker.txt",
+      "depends_on": [
+        "write"
+      ]
+    }
+  ]
+}

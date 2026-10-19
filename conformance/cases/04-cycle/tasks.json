@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "a",
+      "run": "echo a",
+      "depends_on": [
+        "b"
+      ]
+    },
+    {
+      "id": "b",
+      "run": "echo b",
+      "depends_on": [
+        "a"
+      ]
+    }
+  ]
+}

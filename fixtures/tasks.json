@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "defaults": { "timeout_ms": 30000, "retries": 0 },
+  "tasks": [
+    { "id": "build", "run": "echo build" },
+    { "id": "lint", "run": "echo lint", "depends_on": ["build"] },
+    { "id": "test", "run": "echo test", "depends_on": ["build"], "retries": 1 },
+    { "id": "package", "run": "echo package", "depends_on": ["lint", "test"] },
+    { "id": "docs", "run": "echo docs" }
+  ]
+}

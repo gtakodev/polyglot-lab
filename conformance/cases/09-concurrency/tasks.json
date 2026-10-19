@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "p",
+      "run": "sleep 2"
+    },
+    {
+      "id": "q",
+      "run": "sleep 2"
+    }
+  ]
+}

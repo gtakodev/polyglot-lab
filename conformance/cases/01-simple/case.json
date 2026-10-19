@@ -1,0 +1,25 @@
+{
+  "title": "deux tâches chaînées, ordre et rapport",
+  "milestone": "M1",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json"
+  ],
+  "expect": {
+    "exit_code": 0,
+    "status": "success",
+    "tasks": {
+      "a": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      },
+      "b": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      }
+    }
+  }
+}

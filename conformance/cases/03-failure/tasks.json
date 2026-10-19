@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "fail",
+      "run": "sh -c 'exit 3'"
+    },
+    {
+      "id": "after",
+      "run": "echo never",
+      "depends_on": [
+        "fail"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "title": "échec d'une dépendance → dépendant ignoré, sortie 1",
+  "milestone": "M1",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json"
+  ],
+  "expect": {
+    "exit_code": 1,
+    "status": "failed",
+    "tasks": {
+      "fail": {
+        "status": "failed",
+        "attempts": 1,
+        "exit_code": 3
+      },
+      "after": {
+        "status": "skipped",
+        "attempts": 0,
+        "exit_code": null
+      }
+    }
+  }
+}

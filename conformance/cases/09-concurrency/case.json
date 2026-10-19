@@ -1,0 +1,28 @@
+{
+  "title": "deux tâches de 2 s avec --workers 2 → moins de 3,3 s",
+  "milestone": "M2",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json",
+    "--workers",
+    "2"
+  ],
+  "expect": {
+    "exit_code": 0,
+    "status": "success",
+    "max_duration_ms": 3300,
+    "tasks": {
+      "p": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      },
+      "q": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      }
+    }
+  }
+}

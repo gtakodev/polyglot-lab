@@ -1,0 +1,20 @@
+{
+  "title": "retries=2 → trois tentatives, succès à la troisième",
+  "milestone": "M3",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json"
+  ],
+  "expect": {
+    "exit_code": 0,
+    "status": "success",
+    "tasks": {
+      "flaky": {
+        "status": "success",
+        "attempts": 3,
+        "exit_code": 0
+      }
+    }
+  }
+}

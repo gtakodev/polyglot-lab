@@ -1,0 +1,32 @@
+{
+  "title": "trois tâches indépendantes avec --workers 3",
+  "milestone": "M2",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json",
+    "--workers",
+    "3"
+  ],
+  "expect": {
+    "exit_code": 0,
+    "status": "success",
+    "tasks": {
+      "x": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      },
+      "y": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      },
+      "z": {
+        "status": "success",
+        "attempts": 1,
+        "exit_code": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "timeout court → timed_out, sortie 1",
+  "milestone": "M3",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json"
+  ],
+  "expect": {
+    "exit_code": 1,
+    "status": "failed",
+    "tasks": {
+      "slow": {
+        "status": "timed_out",
+        "attempts": 1,
+        "exit_code": null
+      }
+    }
+  }
+}

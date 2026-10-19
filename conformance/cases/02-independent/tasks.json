@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "x",
+      "run": "echo x"
+    },
+    {
+      "id": "y",
+      "run": "echo y"
+    },
+    {
+      "id": "z",
+      "run": "echo z"
+    }
+  ]
+}

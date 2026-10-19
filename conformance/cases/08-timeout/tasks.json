@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "slow",
+      "run": "sleep 2",
+      "timeout_ms": 300
+    }
+  ]
+}

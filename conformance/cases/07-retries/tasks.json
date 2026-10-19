@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "flaky",
+      "run": "n=$(cat count.txt 2>/dev/null || echo 0); n=$((n+1)); echo $n > count.txt; test $n -ge 3",
+      "retries": 2
+    }
+  ]
+}

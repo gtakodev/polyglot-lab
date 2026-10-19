@@ -1,0 +1,16 @@
+{
+  "title": "identifiants dupliqués",
+  "milestone": "M0",
+  "args": [
+    "run",
+    "tasks.json",
+    "--json"
+  ],
+  "expect": {
+    "exit_code": 2,
+    "status": "invalid",
+    "error_codes": [
+      "duplicate_id"
+    ]
+  }
+}
