@@ -172,14 +172,16 @@ def compare(meta: dict, outcome: dict) -> list[str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="tasklite conformance suite")
-    parser.add_argument("--cmd", required=True, help='command that launches the binary, e.g. "go run ."')
+    parser.add_argument("--cmd", default=None, help='command that launches the built binary, e.g. "./tasklite"')
     parser.add_argument("--upto", choices=MILESTONES, default="M3", help="run cases up to this milestone")
     parser.add_argument("--only", action="append", default=[], help="run only these case names (repeatable)")
     parser.add_argument("--list", action="store_true", help="list cases and exit")
     parser.add_argument("-v", "--verbose", action="store_true", help="show stdout/stderr on failure")
     args = parser.parse_args()
 
-    cmd = absolutize(shlex.split(args.cmd), Path.cwd())
+    if not args.list and not args.cmd:
+        parser.error("--cmd is required unless --list is used")
+    cmd = absolutize(shlex.split(args.cmd), Path.cwd()) if args.cmd else []
     case_dirs = sorted(d for d in CASES_DIR.iterdir() if d.is_dir())
     selected = []
     for case_dir in case_dirs:

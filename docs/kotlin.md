@@ -24,7 +24,7 @@
 
 ```bash
 mvn -q compile
-mvn -q exec:java -Dexec.mainClass=lab.tasklite.MainKt -- run ../fixtures/tasks.json
+mvn -q exec:java -Dexec.mainClass=lab.tasklite.MainKt -- run ../../fixtures/tasks.json
 mvn -q test
 ```
 

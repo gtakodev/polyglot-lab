@@ -1,7 +1,7 @@
 # Rust
 
 ```bash
-cargo run -- run ../fixtures/tasks.json --json
+cargo run -- run ../../fixtures/tasks.json --json
 cargo build --release
 cargo test
 cargo clippy -- -D warnings

@@ -1,7 +1,7 @@
 # Go
 
 ```bash
-go run . run ../fixtures/tasks.json --json
+go run . run ../../fixtures/tasks.json --json
 go build -o tasklite .
 go test ./...
 ```

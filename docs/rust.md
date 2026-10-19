@@ -28,7 +28,7 @@
 
 ```bash
 cargo build
-cargo run -- run ../fixtures/tasks.json --json
+cargo run -- run ../../fixtures/tasks.json --json
 cargo test
 cargo clippy -- -D warnings
 cargo fmt

@@ -2,8 +2,8 @@
 
 ```bash
 npm install
-npm run dev -- run ../fixtures/tasks.json --json
-npm run build && node dist/main.js run ../fixtures/tasks.json --json
+npm run dev -- run ../../fixtures/tasks.json --json
+npm run build && node dist/main.js run ../../fixtures/tasks.json --json
 npm test
 ```
 

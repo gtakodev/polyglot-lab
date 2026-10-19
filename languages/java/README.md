@@ -2,7 +2,7 @@
 
 ```bash
 mvn -q compile
-mvn -q exec:java -Dexec.mainClass=lab.tasklite.Main -- run ../fixtures/tasks.json --json
+mvn -q exec:java -Dexec.mainClass=lab.tasklite.Main -- run ../../fixtures/tasks.json --json
 ```
 
 Conformance (depuis ce dossier) :
