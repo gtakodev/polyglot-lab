@@ -1,4 +1,25 @@
-# Toolchains
+# Environnement de travail
+
+## Avant un nouveau parcours
+
+Choisis un seul langage. Vérifie l’exécutable réellement utilisé, sa version, la compilation d’un
+programme minimal et l’exécution d’un test. Note les résultats dans le journal. L’existence d’une
+commande dans le PATH ne prouve ni la présence d’un compilateur ni le bon fonctionnement du build.
+Pour Java, vérifier `javac` autant que `java`. Choisis ensuite les versions du build et des bibliothèques
+compatibles en consultant leur documentation officielle.
+
+Sur cette machine Windows, le relevé du 7 novembre 2026 a trouvé Java via un chemin de JRE,
+Rust/Cargo, Node/npm et Python dans le PATH ; Maven, Kotlin, Go et `sh` n’y ont pas été trouvés.
+WSL est détecté, mais aucune distribution ni toolchain WSL n’a été vérifiée. Ce relevé n’est pas
+une validation de build. Les nouveaux parcours n’imposent pas un shell POSIX ; tasklite l’impose
+via `SPEC.md`. Choisir et vérifier un environnement POSIX avant de lancer ce kata.
+
+## Ancien environnement Linux — archive non validée sur ce poste
+
+Les versions et commandes ci-dessous décrivent l’environnement initial. Elles ne sont ni des
+versions recommandées ni une preuve d’installation locale. Les affirmations de vérification
+s’appliquent uniquement à cet ancien environnement.
+
 
 Versions installées et **vérifiées** (dernier contrôle : octobre 2026). Toutes sont sur le
 `PATH` des sessions de travail ; rien à installer pour commencer à coder.

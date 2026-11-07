@@ -1,5 +1,10 @@
 # Rust
 
+> Référence historique du kata tasklite, pas le parcours principal.
+> Commencer par [le parcours rust](parcours/rust.md). Pour les commandes du kata,
+> utiliser le README de `languages/rust/` ; les exemples ci-dessous peuvent dater.
+> Vérifier les conseils techniques dans la documentation de la version utilisée.
+
 ## Ce que ce projet va te faire travailler
 
 - **Types algébriques** : `enum` avec données (`TaskStatus::Failed { exit_code: i32 }`) et

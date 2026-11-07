@@ -1,5 +1,10 @@
 # TypeScript (Node)
 
+> Référence historique du kata tasklite, pas le parcours principal.
+> Commencer par [le parcours typescript](parcours/typescript.md). Pour les commandes du kata,
+> utiliser le README de `languages/typescript/` ; les exemples ci-dessous peuvent dater.
+> Vérifier les conseils techniques dans la documentation de la version utilisée.
+
 ## Ce que ce projet va te faire travailler
 
 - **Types à l'exécution** : un `interface` ne valide rien. Ton JSON arrive tel quel ; il faut un

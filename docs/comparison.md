@@ -4,7 +4,14 @@ Remplis cette matrice **au fur et à mesure**, pas à la fin. Les cellules vides
 pas des trous à combler avec du texte généré : chaque case que tu remplis doit venir d'une chose
 que tu as réellement écrite et ressentie.
 
-## Faits (vérifiables, à maintenir)
+## Comparer des expériences
+
+Les projets principaux diffèrent : comparer leur durée totale ou leur nombre de lignes ne mesure
+pas la qualité d’un langage. Note le problème précis, les deux solutions vécues et leurs garanties.
+Pour chaque constat, ajoute une source et une preuve issue du journal. Distingue une propriété
+du langage d’un choix de bibliothèque. Les tableaux ci-dessous sont des pistes, pas des devoirs.
+
+## Commandes du kata tasklite (à vérifier dans chaque build)
 
 | | Java | Kotlin | Go | Rust | TypeScript |
 |---|---|---|---|---|---|

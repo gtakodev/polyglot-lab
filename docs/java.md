@@ -1,5 +1,10 @@
 # Java 25 (LTS)
 
+> Référence historique du kata tasklite, pas le parcours principal.
+> Commencer par [le parcours java](parcours/java.md). Pour les commandes du kata,
+> utiliser le README de `languages/java/` ; les exemples ci-dessous peuvent dater.
+> Vérifier les conseils techniques dans la documentation de la version utilisée.
+
 ## Ce que ce projet va te faire travailler
 
 - **Modélisation** : `record` pour la spec, `sealed interface` pour le statut d'une tâche,

@@ -1,156 +1,57 @@
 # Polyglot Lab
 
-Un même outil, cinq langages, zéro copier-coller.
+Apprendre à chercher, expérimenter et concevoir dans cinq langages.
 
-Ce repo est un **terrain d'entraînement**, pas un projet livrable. Le premier kata s'appelle
-**tasklite** : un petit exécuteur de tâches en graphe (DAG). Tu l'implémentes une fois en Java,
-puis tu le réécris en Kotlin, Go, Rust et TypeScript — en écrivant chaque fois le code *idiomatique
-de ce langage*, pas une traduction du précédent.
+Le but est de résoudre un problème nouveau sans dépendre d'une réponse de l'agent.
+Chaque langage a un petit projet qui grandit avec les concepts étudiés. Tu écris le code,
+recherches les garanties dans la documentation officielle et confrontes tes idées à des expériences.
 
-## La règle du jeu
+## Choisir un parcours
 
-1. **Une spec, cinq implémentations.** `SPEC.md` est la seule source de vérité fonctionnelle.
-   Elle est volontairement indépendante du langage.
-2. **Pas de portage mécanique.** Si tu te surprends à recopier la structure de ton code Java
-   en Rust, arrête : demande-toi comment un Rustacé modéliserait ça, puis vérifie dans la doc.
-3. **Les tests de conformité sont fournis.** `conformance/` exécute ton binaire comme un
-   utilisateur le ferait (CLI, fichiers, codes de sortie, JSON). C'est le juge commun aux cinq
-   langages — pas tes tests unitaires, que tu écris toi-même.
-4. **L'agent est un prof, pas un assistant.** Voir `AGENTS.md`. Il ne code pas à ta place ;
-   il te guide, te questionne et t'envoie vers la bonne page de doc.
-
-## Démarrer ici — la première session
-
-Tout est déjà installé (voir `TOOLCHAINS.md`) : aucune installation, aucune dépendance à récupérer.
-On travaille **un langage à la fois**, et on commence par Java.
-
-### Étape 0 — lire avant de taper (20 min, pas plus)
-
-1. `SPEC.md` **§1** (CLI et codes de sortie), **§2** (format + validations), **§5 → M0**.
-2. Les trois cas que M0 doit faire passer : `conformance/cases/04-cycle`, `05-unknown-dep`,
-   `06-duplicate-id` — le `case.json` dit exactement ce qui est attendu.
-3. `AGENTS.md` — ce que l'agent a le droit de faire (peu de choses).
-
-### Étape 1 — vérifier que le squelette tourne
-
-```bash
-cd languages/java
-mvn -q package
-java -jar target/tasklite.jar; echo "exit=$?"
-```
-
-Attendu : `tasklite: not implemented yet — see SPEC.md (M0)` puis `exit=3`. Si tu vois autre
-chose, le support a un problème : arrête-toi et signale-le.
-
-### Étape 2 — mesurer l'écart
-
-```bash
-python3 ../../conformance/run.py --cmd "java -jar target/tasklite.jar" --upto M0
-```
-
-Attendu : `0/3 case(s) passed.` — c'est le point de départ, pas un échec. À la fin de M0 : `3/3`.
-
-### Étape 3 — coder
-
-Le fichier : `languages/java/src/main/java/lab/tasklite/Main.java`.
-
-**Tu écris tout.** L'agent ne produira jamais l'implémentation. Si tu lui colles ton code, il
-le lit et le commmente ; si tu lui demandes la solution, il refuse une fois, puis te propose de
-réduire le problème.
-
-Après chaque modification, la boucle est :
-
-```bash
-mvn -q package && python3 ../../conformance/run.py --cmd "java -jar target/tasklite.jar" --upto M0
-```
-
-Un cas qui échoue s'affiche avec `-v` : `--upto M0 -v` montre stdout, stderr et l'attendu.
-
-### Étape 4 — la boucle d'une session
-
-| # | Toi | L'agent |
+| Langage | Projet | Concepts centraux |
 |---|---|---|
-| 1 | Relis le milestone, reformule-le en une phrase | corrige la reformulation si elle est floue |
-| 2 | Écris la sortie que tu attends pour un cas du milestone (`04-cycle` en M0) | compare avec la fixture |
-| 3 | Annonce tes structures de données et l'ordre des étapes | pose **une** question sur le point le plus fragile |
-| 4 | Code | ne regarde pas avant que tu demandes une revue |
-| 5 | Demande une revue | commente par questions, max 3 remarques, jamais de code |
-| 6 | Lance la conformance | lit la sortie avec toi, sans l'interpréter à ta place |
-| 7 | Remplis `journal/java.md` | deux questions dessus |
+| [Java](docs/parcours/java.md) | Catalogue de livres en CLI | Domaine, collections, contrats, fichiers, concurrence JVM |
+| [Kotlin](docs/parcours/kotlin.md) | Agrégateur de bulletins locaux | Nullabilité, transformations, coroutines, annulation, Flow |
+| [Go](docs/parcours/go.md) | Vérificateur de services HTTP | Erreurs, interfaces, HTTP, contextes, goroutines |
+| [Rust](docs/parcours/rust.md) | Recherche dans des fichiers | Ownership, emprunts, Result, itérateurs, traits, mémoire |
+| [TypeScript](docs/parcours/typescript.md) | Explorateur de rapports JSON | Validation runtime, unions, génériques, modules, asynchronisme |
 
-### Étape 5 — clore le milestone
+Les projets sont indépendants. Commence par celui qui t'attire ; Java est un point de départ
+naturel si tu le pratiques déjà. Chaque parcours va d'un noyau utilisable à des extensions
+facultatives. On ajoute une difficulté lorsqu'on sait quel besoin elle résout.
 
-- `PROGRESS.md` : coche `M0` pour Java **seulement si** `3/3` passe.
-- `journal/java.md` : ce qui a coincé, ce que tu as appris, le temps passé.
+## Première session
 
-Puis M1 (`01-simple`, `03-failure`, `10-ordering`), et ainsi de suite jusqu'à M3 = fin de la v0.
+1. Lis le contrat minimal et P0 du parcours choisi.
+2. Vérifie [l'environnement](TOOLCHAINS.md) : les anciens chemins Linux ne prouvent pas que cette machine est prête.
+3. Lis [la méthode](docs/methode.md) et ouvre le [modèle de journal](journal/TEMPLATE.md).
+4. Formule une question, trouve une source officielle, prédis un résultat, puis expérimente.
 
-### Si tu es bloqué
+Une session de 30 à 60 minutes peut se terminer par une preuve ou un blocage précis.
+Il n'est pas nécessaire de finir un palier à chaque session.
 
-Dis-le avec le message d'erreur exact. L'aide monte d'un niveau à la fois : question sur
-l'invariant → nom du concept + lien officiel → forme de la solution en prose. Jamais de code.
-Si tu insistes, l'agent te proposera une session `grill-me` plutôt que de céder.
+## Se repérer
 
-### Changer de langage
+- [Méthode](docs/methode.md) : recherche, expériences, aide et validation.
+- [Progression](PROGRESS.md) : fonctionnement, compréhension et autonomie séparés.
+- [Comparaison](docs/comparison.md) : rapprocher des expériences réellement vécues.
+- `journal/` : prédictions, sources, résultats et reprises sans aide.
+- `evidence/` : commandes et sorties réelles, reliées au journal.
+- [AGENTS.md](AGENTS.md) : contrat pédagogique de l'agent.
 
-Même spec, même suite, autre dossier (`languages/kotlin|go|rust|typescript`). Chaque dossier a
-son `README.md` avec les commandes. La commande de conformance change, la suite non :
+## Où écrire le code
 
-```bash
-# Go           --cmd "./tasklite"
-# Rust         --cmd "./target/debug/tasklite"
-# TypeScript   --cmd "node dist/main.js"
-# Kotlin       --cmd "java -jar target/tasklite.jar"
-```
+Les nouveaux projets se développent dans `projects/<langage>/`, à créer au premier palier.
+Tu choisis et initialises toi-même le build avec la documentation. Les fiches fournissent les
+comportements à vérifier ; elles ne fournissent ni implémentation ni suite de tests exécutable.
+Les essais isolés peuvent vivre dans `experiments/<langage>/`.
 
-Les cas ne se lancent **jamais** avec `go run .` ou `cargo run` : la suite exécute le binaire
-dans un répertoire temporaire, donc l'artefact doit être construit avant.
+## Tasklite : atelier facultatif de transfert
 
-## Structure
+Le kata initial reste disponible pour appliquer tes acquis ou comparer un même comportement
+entre deux langages. Son contrat est [SPEC.md](SPEC.md), ses squelettes sont dans `languages/`
+et sa suite dédiée dans [conformance/](conformance/README.md). Les jalons M0–M6 ne concernent
+que tasklite. Les guides `docs/<langage>.md` restent des références pour ce kata.
 
-```
-SPEC.md                    la spec fonctionnelle (v0 → v3)
-AGENTS.md                  le mode professeur (règles pour l'agent)
-PROGRESS.md                où tu en es, langage par langage
-docs/                      notes par langage, glossaire, matrice de comparaison
-TOOLCHAINS.md              versions installées + commandes vérifiées, langage par langage
-conformance/               suite noire commune + fixtures
-languages/<lang>/          squelette minimal (build + main vide) — à toi de jouer
-journal/                   ton carnet de bord DX, un fichier par langage
-.claude/skills/            grill-me, socratic-review, verify-tasklite
-```
-
-## Ce que tu es censé en retirer
-
-- **Modéliser un domaine** dans cinq systèmes de types différents (sealed classes, sum types,
-  discriminated unions, interfaces + structs).
-- **Gérer la concurrence** dans cinq modèles : threads + executor, coroutines, goroutines,
-  threads OS / tokio, boucle d'événements.
-- **Propager des erreurs** sans exceptions, avec exceptions, avec `Result`, avec des unions.
-- **Manipuler des processus** et des timeouts correctement (tuer un arbre de processus, ce que
-  presque tout le monde rate au premier essai).
-- **Comparer les DX** : build, dépendances, tests, debug, formatage, outillage — et le noter
-  dans `journal/`.
-
-## Ordre suggéré
-
-| # | Langage | Pourquoi dans cet ordre |
-|---|---------|--------------------------|
-| 1 | Java | ton langage quotidien : tu mesures l'écart entre « je sais faire » et « je fais proprement » |
-| 2 | Kotlin | mêmes concepts, autre expressivité : tu vois ce que la JVM permet d'autre |
-| 3 | Go | l'anti-abstract : peu de features, beaucoup de discipline |
-| 4 | Rust | le coût réel de la propriété et des types algébriques |
-| 5 | TypeScript | le plus proche de ton quotidien web, mais avec un système de types qui joue dans une autre catégorie |
-
-Tu n'es pas obligé de finir v0 dans un langage avant de passer au suivant. En revanche, ne passe
-jamais à un langage **sans avoir rempli la ligne correspondante du journal** : c'est là que
-l'apprentissage se fixe.
-
-## Crédits
-
-- `grill-me` est adapté du skill éponyme de **Matt Pocock** (mattpocock/skills), réduit à son os :
-  interviewer jusqu'à l'accord explicite, une question à la fois.
-- `verify-tasklite` suit la structure du `create-verification-skill` de **Lauren Tan (poteto)** :
-  lancer, docteur, piloter, preuves, nettoyage — appliquée ici à une CLI.
-
-Licence MIT (voir `LICENSE`).
+Licence MIT. Les skills locaux sont adaptés des travaux de Matt Pocock (`grill-me`)
+et Lauren Tan (`verify-tasklite`).

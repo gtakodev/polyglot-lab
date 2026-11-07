@@ -1,5 +1,8 @@
 # Journal — Rust
 
+Pour les nouveaux parcours, ajoute tes sessions avec [le modèle](TEMPLATE.md).
+Les sections tasklite ci-dessous restent disponibles pour cet atelier facultatif.
+
 Une entrée par milestone, remplie **à chaud** (jour même), pas une semaine plus tard.
 
 ---

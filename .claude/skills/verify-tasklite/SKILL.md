@@ -1,6 +1,6 @@
 ---
 name: verify-tasklite
-description: Piloter la CLI tasklite comme un utilisateur et produire des preuves (build, conformance, transcript) pour une implémentation de languages/. À utiliser avant de dire qu'un milestone est terminé.
+description: Piloter la CLI tasklite comme un utilisateur et produire des preuves (build, conformance, transcript) pour une implémentation de languages/. Réservé aux jalons M0–M3 de tasklite ; ne valide pas les nouveaux parcours P0–P4.
 ---
 
 # Vérifier tasklite
@@ -18,8 +18,8 @@ Depuis `languages/<lang>/` :
 
 | Langage | Build | Lancement |
 |---|---|---|
-| Java | `mvn -q compile` | `java -cp target/classes lab.tasklite.Main` |
-| Kotlin | `mvn -q compile` | `java -cp target/classes lab.tasklite.MainKt` |
+| Java | `mvn -q package` | `java -jar target/tasklite.jar` |
+| Kotlin | `mvn -q package` | `java -jar target/tasklite.jar` |
 | Go | `go build -o tasklite .` | `./tasklite` |
 | Rust | `cargo build` | `./target/debug/tasklite` |
 | TypeScript | `npm install && npm run build` | `node dist/main.js` |
@@ -34,28 +34,27 @@ relatifs de `--cmd` sont résolus depuis le dossier d'invocation.
 <cmd> run ../../fixtures/tasks.json --json
 ```
 
-Si cette commande sort `3`, l'implémentation n'a pas commencé : ne va pas plus loin, dis-le.
+En M0, une spec valide peut encore sortir `3` : vérifier les trois cas invalides de M0.
+À partir de M1, la sortie `3` indique une exécution encore non implémentée.
 
-## 2. Doctor — est-ce que ça vaut le coup de tester ?
+## 2. Doctor — vérifier le périmètre
 
-Une seule commande, en lecture seule :
+Depuis `languages/<lang>/`, lister les cas :
 
 ```bash
-python3 ../../conformance/run.py --cmd "<cmd>" --list   # les cas voient-ils bien l'implémentation ?
-<cmd> run ../../fixtures/tasks.json --json | head -c 400
+python3 ../../conformance/run.py --cmd "<cmd>" --list
 ```
 
-Vérifie trois choses : la commande existe, la sortie est **du JSON seul sur stdout**, et le code de
-sortie correspond à ce que la spec attend pour cette fixture (`0`).
-
-Si le JSON est mélangé à des logs, **arrête** : aucun cas ne pourra passer, et le vrai problème est
-la séparation stdout/stderr.
+Cette liste ne prouve pas que le binaire fonctionne. En M0, vérifier les cas invalides ; le
+support des entrées valides n’est pas encore requis. À partir de M1, vérifier aussi la fixture
+valide et la séparation stdout/stderr. Lire code de sortie et sortie complète, sans pipe qui
+masquerait le code de sortie. Utiliser le Python réellement vérifié dans cet environnement.
 
 ## 3. Drive — la conformance, milestone par milestone
 
 ```bash
-python3 conformance/run.py --cmd "<cmd>" --upto M0   # M0 d'abord, pas tout d'un coup
-python3 conformance/run.py --cmd "<cmd>" --upto M3
+python3 ../../conformance/run.py --cmd "<cmd>" --upto M0   # M0 d'abord, pas tout d'un coup
+python3 ../../conformance/run.py --cmd "<cmd>" --upto M3
 ```
 
 Règles :

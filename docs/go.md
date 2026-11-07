@@ -1,5 +1,10 @@
 # Go
 
+> Référence historique du kata tasklite, pas le parcours principal.
+> Commencer par [le parcours go](parcours/go.md). Pour les commandes du kata,
+> utiliser le README de `languages/go/` ; les exemples ci-dessous peuvent dater.
+> Vérifier les conseils techniques dans la documentation de la version utilisée.
+
 ## Ce que ce projet va te faire travailler
 
 - **Modélisation sans types somme** : un statut de tâche en Go, c'est un `string` typé ou une

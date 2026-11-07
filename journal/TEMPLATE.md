@@ -1,37 +1,35 @@
-# Journal — <langage>
+# Journal — session d’apprentissage
 
-Copie ce fichier en `journal/<langage>.md` et remplis-le **à chaud**, juste après le milestone,
-pas une semaine plus tard. Une entrée par milestone.
+## Date / langage / projet / palier
 
----
+- État de départ et versions :
+- Comportement visé (entrées, sorties, erreurs) :
+- Décisions de contrat prises avant les tests :
+- Ma question de recherche :
+- Mots-clés essayés :
+- Source officielle, section et version :
+- Garantie trouvée, avec mes mots :
+- Ma prédiction avant exécution (cas normal et limite) :
+- Expérience réalisée et lien vers le code :
+- Commande, dossier, sortie, code de sortie ou lien vers la preuve :
+- Écart entre prédiction et observation, et son explication :
+- Décision appliquée au projet et alternative écartée :
+- Ce que je sais expliquer documentation fermée :
+- Limite ou question encore ouverte :
+- Aide reçue (0–3) et ce qu’elle a débloqué :
+- F / C validés, avec preuve :
+- Prochaine expérience précise :
 
-## <AAAA-MM-JJ> — <langage> — M<n>
+## Reprise ultérieure — transfert
 
-**Ce que je devais faire (une phrase)**
+- Date et variante :
+- Prédiction et démarche sans indice de l’agent :
+- Documentation consultée :
+- Résultat observé et preuve :
+- A validé ou nouvelle tentative à prévoir :
 
-**Ce qui a été fluide**
--
+## Comparaison vécue (facultatif)
 
-**Ce qui a résisté**
--
-
-**L'indice qui m'a débloqué (niveau 1/2/3) et pourquoi les autres ne suffisaient pas**
-
-**Une chose que ce langage fait mieux que mon langage principal**
--
-
-**Une chose qui m'a manqué**
--
-
-**Si je devais l'écrire à nouveau, je changerais quoi dans ma structure de données ?**
-
-**Temps passé (approximatif)** : h
-
----
-
-## Bilan de fin de langage (à remplir une fois, après M3)
-
-- Verdict en une phrase :
-- Ce que je garde dans ma façon de coder, même en Java/TS :
-- Ce que je ne veux jamais revoir :
-- Prochain langage et ce que j'y vais chercher :
+- Même difficulté rencontrée dans un autre langage :
+- Ce que le compilateur, le runtime et mes tests garantissent chacun :
+- Compromis que je choisirais à nouveau, et pourquoi :
