@@ -4,8 +4,6 @@ dist/
 node_modules/
 *.class
 *.jar
-languages/go/tasklite
-languages/rust/target/
 
 # Outils
 .idea/

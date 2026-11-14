@@ -1,14 +1,13 @@
 ---
 name: socratic-review
-description: Revoir sur demande le code d’un parcours ou de tasklite, par une question à la fois, sans le réécrire.
+description: Revoir sur demande le code d’un parcours, par une question à la fois, sans le réécrire.
 ---
 
 # Revue socratique
 
 1. Lire `AGENTS.md`, puis le contrat du palier actif et les preuves disponibles.
 2. Pour `projects/`, utiliser les critères de `docs/parcours/<langage>.md` et les tests de l’apprenant.
-   Pour `languages/`, utiliser `SPEC.md` et la conformance tasklite. Identifier le dossier et la
-   commande exacte avant de lancer. Une commande indisponible est une limite, pas un succès.
+   Identifier le dossier et la commande exacte avant de lancer. Une commande indisponible est une limite, pas un succès.
 3. Vérifier le cas visé, puis examiner le point le plus important : contrat, modèle, erreurs,
    durée de vie des ressources ou concurrence selon ce palier.
 4. Indiquer le résultat observé et poser UNE question localisée dans le code, sans correction.

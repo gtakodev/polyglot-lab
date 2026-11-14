@@ -53,7 +53,7 @@ Un échec attendu doit être expliqué : toute commande qui échoue n'est pas un
 Les fiches donnent le périmètre et les cas à vérifier. Avant chaque palier, consigne les entrées,
 sorties, erreurs et décisions ouvertes (format, ordre, politique d'échec). Fixe ces choix avant
 les tests. Note explicitement toute évolution du contrat.
-Les tests des nouveaux projets sont à écrire ; `conformance/` est exclusivement pour tasklite.
+Tu écris les tests de ton projet à partir des critères du palier.
 Pour les mesures, note machine, données et répétitions : changer de technique ne prouve pas un gain.
 
 ## Fin et reprise

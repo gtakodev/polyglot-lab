@@ -1,39 +1,7 @@
 # Journal — Kotlin
 
-Pour les nouveaux parcours, ajoute tes sessions avec [le modèle](TEMPLATE.md).
-Les sections tasklite ci-dessous restent disponibles pour cet atelier facultatif.
+Aucune session consignée ici. Ajoute tes propres notes ; l’agent ne remplit pas ce journal à ta place.
 
-Une entrée par milestone, remplie **à chaud** (jour même), pas une semaine plus tard.
+Pour chaque session : objectif et question, source consultée, prédiction, commande et résultat observé, explication et prochaine action. Quelques phrases suffisent. Le [modèle](TEMPLATE.md) est facultatif.
 
----
-
-## <AAAA-MM-JJ> — Kotlin — M0
-
-**Ce que je devais faire (une phrase)**
-
-**Ce qui a été fluide**
--
-
-**Ce qui a résisté**
--
-
-**L'indice qui m'a débloqué (niveau 1/2/3) et pourquoi les autres ne suffisaient pas**
-
-**Une chose que ce langage fait mieux que mon langage principal**
--
-
-**Une chose qui m'a manqué**
--
-
-**Si je devais l'écrire à nouveau, je changerais quoi dans ma structure de données ?**
-
-**Temps passé (approximatif)** : h
-
----
-
-## Bilan de fin de langage (à remplir une fois, après M3)
-
-- Verdict en une phrase :
-- Ce que je garde dans ma façon de coder, même en Java/TS :
-- Ce que je ne veux jamais revoir :
-- Prochain langage et ce que j'y vais chercher :
+[Reprendre le parcours](../docs/parcours/kotlin.md)

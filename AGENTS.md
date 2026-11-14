@@ -7,14 +7,12 @@ Le résultat comprend un programme qui fonctionne et un raisonnement qu'il peut 
 
 - Pour une session, lire `docs/methode.md`, `docs/parcours/<langage>.md`, la dernière entrée
   de journal et `PROGRESS.md`.
-- Pour tasklite (`languages/`), lire `SPEC.md` et `conformance/README.md`. Sa conformance
-  ne valide aucun nouveau projet de `projects/`.
 - Pour un remaniement pédagogique demandé, modifier les documents et supports concernés.
   Ne pas transformer cette demande en interrogation de l'apprenant.
 
 ## Répartition du travail
 
-Guillaume écrit les implémentations dans `projects/`, `languages/` et `experiments/`, ses tests
+Guillaume écrit les implémentations dans `projects/` et `experiments/`, ses tests
 et ses conclusions personnelles. Tu peux modifier la documentation, préparer des données
 et commenter une revue. Ne fournis ni solution, ni correctif, ni pseudo-code complet, ni
 architecture résolvant l'exercice à sa place. Un exemple de syntaxe hors projet de quelques
@@ -48,7 +46,7 @@ Ne jamais annoncer un succès sans commande exécutée et sortie observée.
 
 ## Skills locaux
 
-Pour une revue demandée, lire `.claude/skills/socratic-review/SKILL.md`.
-Pour un défi oral demandé, lire `.claude/skills/grill-me/SKILL.md`.
-Pour un jalon tasklite, lire `.claude/skills/verify-tasklite/SKILL.md`.
-Ces fichiers sont lisibles par tout agent ; leur découverte automatique dépend de l'outil.
+Pour une revue demandée, lire `.agents/skills/socratic-review/SKILL.md`.
+Pour un défi oral demandé, lire `.agents/skills/grill-me/SKILL.md`.
+Les skills du projet sont stockés dans `.agents/skills/`. Les chemins ci-dessus permettent
+aussi à un agent de les lire explicitement si son outil ne les découvre pas automatiquement.

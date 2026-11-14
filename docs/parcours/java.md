@@ -1,22 +1,37 @@
 # Java — catalogue de livres
 
-[Méthode commune](../methode.md) · [Progression](../../PROGRESS.md)
+[Accueil](../../README.md) · [Mon journal](../../journal/java.md)
 
 ## Contrat minimal
 
 Une CLI ajoute et liste des livres en mémoire. Chaque livre a un identifiant et un titre non vides ; un identifiant déjà présent est refusé sans modifier le catalogue. Pas de framework, réseau ou base de données au départ.
 
-## Préparer le terrain
+## Première session
 
-Travail dans `projects/java/` ; expériences dans `experiments/java/`.
-Vérifie le compilateur, le build et un test minimal avant P0. Choisis les versions avec
-[TOOLCHAINS.md](../../TOOLCHAINS.md) et consigne-les. Les tests ci-dessous sont à écrire.
+1. Crée `projects/java/`. Vérifie les outils du langage et leur version, puis fais compiler un programme minimal et exécuter un test. Si cela bloque, consulte [l’environnement](../../TOOLCHAINS.md).
+2. Lis seulement P0 ci-dessous. Écris avec tes mots les entrées, sorties et erreurs attendues ; fixe les choix laissés ouverts par le contrat.
+3. Formule ta première question de recherche. Utilise le portail officiel ci-dessous pour trouver une réponse, puis prédis le résultat d’un petit essai avant de l’exécuter.
+4. Applique ce que tu as vérifié au projet. Contrôle les cas de la rubrique **À vérifier**.
+5. Dans [ton journal](../../journal/java.md), note la source, la prédiction, la commande et son résultat, puis une prochaine action précise.
+
+Tu peux t’arrêter après une seule expérience. Les essais isolés vont dans `experiments/java/`.
+Si tu travailles avec l’agent, indique « Je commence Java, P0 » : il te guide une question à la fois, sans écrire ta solution.
+
+## Quand passer à la suite
+
+Passe au palier suivant lorsque les cas demandés fonctionnent et que tu peux expliquer ton choix et une limite. Note ces preuves dans [la progression](../../PROGRESS.md). Lors d’une autre session, essaie la variante proposée sans indice de l’agent ; la documentation reste autorisée.
 
 ## Porte d’entrée documentaire
 
 [Documentation officielle](https://dev.java/learn/). Cherche toi-même la section mentionnée dans le palier.
 Note la page précise et la garantie trouvée avant de demander une explication.
 Lis un seul palier à la fois ; les suivants donnent une direction, pas une architecture à anticiper.
+
+## Étapes du projet
+
+P0 — Une entrée, une erreur → P1 — Modéliser des opérations → P2 — Rechercher et transformer → P3 — Sauvegarder sans perdre → P4 — Enrichir en concurrence
+
+Lis uniquement le palier en cours.
 
 ## P0 — Une entrée, une erreur
 
@@ -26,9 +41,9 @@ Lis un seul palier à la fois ; les suivants donnent une direction, pas une arch
 
 **Expérience avant intégration :** Prédis le résultat avec un titre vide, puis un identifiant dupliqué. Observe aussi l’état du catalogue après le refus.
 
-**Preuve de fonctionnement :** Ajouter et lister deux livres ; refuser les deux erreurs sans altérer les livres existants.
+**À vérifier :** Ajouter et lister deux livres ; refuser les deux erreurs sans altérer les livres existants.
 
-**Transfert lors d’une autre session :** Ajoute une nouvelle règle sur un champ et explique où elle doit être vérifiée.
+**Plus tard, sans aide :** Ajoute une nouvelle règle sur un champ et explique où elle doit être vérifiée.
 
 ## P1 — Modéliser des opérations
 
@@ -38,9 +53,9 @@ Lis un seul palier à la fois ; les suivants donnent une direction, pas une arch
 
 **Expérience avant intégration :** Compare égalité et identité ; modifie une collection utilisée pour construire une valeur et prédis ce que cette valeur expose.
 
-**Preuve de fonctionnement :** Emprunter puis rendre un livre ; refuser un second emprunt et un retour impossible. Explique les états que ton modèle autorise.
+**À vérifier :** Emprunter puis rendre un livre ; refuser un second emprunt et un retour impossible. Explique les états que ton modèle autorise.
 
-**Transfert lors d’une autre session :** Ajoute une réservation en définissant ses transitions avant de choisir sa représentation.
+**Plus tard, sans aide :** Ajoute une réservation en définissant ses transitions avant de choisir sa représentation.
 
 ## P2 — Rechercher et transformer
 
@@ -50,9 +65,9 @@ Lis un seul palier à la fois ; les suivants donnent une direction, pas une arch
 
 **Expérience avant intégration :** Compare une boucle et un pipeline sur les mêmes données : catalogue vide, égalités de titres, filtre sans résultat.
 
-**Preuve de fonctionnement :** Recherche par titre et tri déterministe selon une règle écrite ; mêmes résultats pour les deux versions.
+**À vérifier :** Recherche par titre et tri déterministe selon une règle écrite ; mêmes résultats pour les deux versions.
 
-**Transfert lors d’une autre session :** Ajoute un regroupement par auteur et justifie la collection de sortie.
+**Plus tard, sans aide :** Ajoute un regroupement par auteur et justifie la collection de sortie.
 
 ## P3 — Sauvegarder sans perdre
 
@@ -62,9 +77,9 @@ Lis un seul palier à la fois ; les suivants donnent une direction, pas une arch
 
 **Expérience avant intégration :** Provoque fichier absent, contenu invalide et échec d’écriture dans un dossier temporaire.
 
-**Preuve de fonctionnement :** Aller-retour sauvegarde/lecture ; une lecture invalide conserve le catalogue courant ; une sauvegarde échouée ne détruit pas la précédente.
+**À vérifier :** Aller-retour sauvegarde/lecture ; une lecture invalide conserve le catalogue courant ; une sauvegarde échouée ne détruit pas la précédente.
 
-**Transfert lors d’une autre session :** Fais évoluer le format et traite explicitement une ancienne version.
+**Plus tard, sans aide :** Fais évoluer le format et traite explicitement une ancienne version.
 
 ## P4 — Enrichir en concurrence
 
@@ -74,13 +89,12 @@ Lis un seul palier à la fois ; les suivants donnent une direction, pas une arch
 
 **Expérience avant intégration :** Avec un fournisseur local simulé, compare séquentiel et concurrent ; compte les opérations actives au lieu de supposer la limite respectée.
 
-**Preuve de fonctionnement :** Enrichir N livres avec au plus K opérations actives ; tester erreur et annulation, puis vérifier qu’aucune opération ne continue après la fermeture.
+**À vérifier :** Enrichir N livres avec au plus K opérations actives ; tester erreur et annulation, puis vérifier qu’aucune opération ne continue après la fermeture.
 
-**Transfert lors d’une autre session :** Change la politique d’échec et explique quels résultats partiels restent utilisables.
+**Plus tard, sans aide :** Change la politique d’échec et explique quels résultats partiels restent utilisables.
 
 ## Aller plus loin
 
 Profiler une recherche avec JFR ; comparer deux collections sur des données mesurées ; explorer modules et packaging. Choisis un seul axe et une question mesurable.
 
 Avant une extension, écris le besoin, la notion à explorer et la preuve de fin.
-Tu peux aussi choisir un jalon de [tasklite](../../SPEC.md) pour tester le transfert vers un autre domaine.

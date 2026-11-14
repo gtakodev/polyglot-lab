@@ -11,8 +11,7 @@ Demander une prédiction sur un cas limite, sans donner une réponse recommandé
 Attendre la réponse ; demander une source ou une expérience pour départager les hypothèses.
 Corriger une idée fausse après la tentative, puis vérifier avec une autre situation.
 
-Une question par message. Ne pas produire un questionnaire complet ou imposer les concepts de
-tasklite à un autre projet. Utiliser l’échelle d’aide de `docs/methode.md` en cas de blocage.
+Une question par message. Ne pas produire un questionnaire complet. Utiliser l’échelle d’aide de `docs/methode.md` en cas de blocage.
 Terminer à sa demande, ou proposer de conclure lorsque la question de départ a une preuve claire.
 Conserver les incertitudes restantes comme prochaine expérience, sans remplir son journal.
 
